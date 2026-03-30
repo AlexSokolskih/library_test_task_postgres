@@ -11,19 +11,24 @@
 
 git clone --recurse-submodules git@github.com:AlexSokolskih/library_test_task_postgres.git
 скачает основной репозиторий + вложенные репозитории (submodules)
+
 Если склонировал без submodule
-Тогда :
+Тогда : 
 git submodule update --init --recursive
 
 
 ## Быстрый старт (Docker)
 
 ```bash
-cd /home/alex/projects/testtasks/Russia/Library
+cd library_test_task_postgres/
 docker compose up -d --build
 ```
 #запускаем тесты
+```bash
 docker compose exec document_description npm run test:all
+```
+
+
 
 ## Доступы и порты
 
