@@ -1,0 +1,3 @@
+[submodule "document_description"]
+	path = document_description
+	url = git@github.com:AlexSokolskih/library_test_task_main.git
