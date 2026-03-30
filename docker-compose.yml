@@ -4,19 +4,46 @@ services:
     image: postgres:16-alpine
     container_name: library-postgres
     restart: unless-stopped
+    # В этом окружении проблемы с созданием bridge-сетей Docker (iptables),
+    # поэтому используем host network.
+    network_mode: host
+    # Если на хосте уже запущен Postgres на 5432, контейнер в host-mode упадет
+    # из-за занятости порта. Поэтому слушаем на 5433.
+    command: ["postgres", "-c", "port=5433"]
     environment:
       POSTGRES_DB: library_db
       POSTGRES_USER: library_user
       POSTGRES_PASSWORD: library_password
-    ports:
-      - "5432:5432"
     volumes:
       - library_postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB -p 5433"]
       interval: 10s
       timeout: 5s
       retries: 5
+  document_description:
+    build:
+      context: ./document_description
+    container_name: document-description-app
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      # Сервис слушает на 3000
+      PORT: 3000
+      # Подключение к БД (в host network БД доступна на локалхосте)
+      DB_HOST: 127.0.0.1
+      DB_PORT: 5433
+      DB_USER: library_user
+      DB_PASSWORD: library_password
+      DB_NAME: library_db
+      # Токен для доступа к API
+      DOCUMENT_DESCRIPTION_TOKEN: change-me
+      # Опциональные настройки потоков
+      NDJSON_TRANSFORM_HIGH_WATER_MARK: 16
+      EXPORT_STREAM_BATCH_SIZE: 1000
+    depends_on:
+      postgres:
+        condition: service_healthy
 
 volumes:
   library_postgres_data:
