@@ -15,8 +15,9 @@ git clone --recurse-submodules git@github.com:AlexSokolskih/library_test_task_po
 
 Если склонировал без submodule
 Тогда : 
+```bash
 git submodule update --init --recursive
-
+```
  
 ## Быстрый старт (Docker)
 
