@@ -34,8 +34,8 @@ docker compose exec document_description npm run test:all
 
 ## Доступы и порты 
 
-- API: `http://localhost:3000`
-- Swagger: `http://localhost:3000/api/docs`
+- API: [http://localhost:3000](http://localhost:3000)
+- Swagger: [http://localhost:3000/api/docs](http://localhost:3000/api/docs)
 - Postgres (host mode): `127.0.0.1:5433`
 - Bearer token (по умолчанию в compose): `change-me`
 
