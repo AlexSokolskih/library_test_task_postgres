@@ -5,7 +5,6 @@
 ## Что внутри
 
 - `docker-compose.yml` — запуск PostgreSQL + `document_description`,
-- 
 - `document_description/` — NestJS API (Swagger, миграции, сиды, e2e/unit тесты)
 
 ## установка с Git 
