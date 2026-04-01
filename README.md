@@ -8,8 +8,9 @@
 - `document_description/` — NestJS API (Swagger, миграции, сиды, e2e/unit тесты)
 
 ## установка с Git 
-
+```bash
 git clone --recurse-submodules git@github.com:AlexSokolskih/library_test_task_postgres.git
+```
 скачает основной репозиторий + вложенные репозитории (submodules)
 
 Если склонировал без submodule
