@@ -7,7 +7,7 @@
 - `docker-compose.yml` — запуск PostgreSQL + `document_description`
 - `document_description/` — NestJS API (Swagger, миграции, сиды, e2e/unit тесты)
 
-## установка с Git
+## установка с Git 
 
 git clone --recurse-submodules git@github.com:AlexSokolskih/library_test_task_postgres.git
 скачает основной репозиторий + вложенные репозитории (submodules)
@@ -16,8 +16,8 @@ git clone --recurse-submodules git@github.com:AlexSokolskih/library_test_task_po
 Тогда : 
 git submodule update --init --recursive
 
-
-## Быстрый старт (Docker)
+ 
+## Быстрый старт (Docker)1
 
 ```bash
 cd library_test_task_postgres/
@@ -30,7 +30,7 @@ docker compose exec document_description npm run test:all
 
 
 
-## Доступы и порты
+## Доступы и порты 
 
 - API: `http://localhost:3000`
 - Swagger: `http://localhost:3000/api/docs`
