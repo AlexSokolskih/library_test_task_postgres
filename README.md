@@ -4,7 +4,8 @@
 
 ## Что внутри
 
-- `docker-compose.yml` — запуск PostgreSQL + `document_description`
+- `docker-compose.yml` — запуск PostgreSQL + `document_description`,
+- 
 - `document_description/` — NestJS API (Swagger, миграции, сиды, e2e/unit тесты)
 
 ## установка с Git 
@@ -53,3 +54,11 @@ curl -i \
 Детальная документация по эндпоинтам и архитектуре:
 
 - `document_description/README.md`
+
+## CI (GitHub Actions)
+
+При каждом `push` и `pull_request` запускается workflow `Tests`:
+
+- файл: `.github/workflows/tests.yml`
+- шаги: `npm ci` и `npm test -- --runInBand` в `document_description`
+- где смотреть статус: вкладка `Actions` в GitHub репозитории
