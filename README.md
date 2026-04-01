@@ -17,7 +17,7 @@ git clone --recurse-submodules git@github.com:AlexSokolskih/library_test_task_po
 git submodule update --init --recursive
 
  
-## Быстрый старт (Docker)1
+## Быстрый старт (Docker)
 
 ```bash
 cd library_test_task_postgres/
