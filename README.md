@@ -52,7 +52,7 @@ curl -i \
 
 Детальная документация по эндпоинтам и архитектуре:
 
-- `document_description/README.md`
+- [document_description/README.md](https://github.com/AlexSokolskih/library_test_task_main/blob/main/README.md)
 
 ## CI (GitHub Actions)
 
