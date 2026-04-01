@@ -30,7 +30,7 @@ docker compose exec document_description npm run test:all
 
 
 
-## Доступы и порты 
+## Доступы и порты
 
 - API: `http://localhost:3000`
 - Swagger: `http://localhost:3000/api/docs`
